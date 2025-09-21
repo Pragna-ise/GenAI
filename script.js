@@ -8,7 +8,7 @@ function addMessage(text, sender = "bot") {
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Upload
+
 async function uploadFile() {
   const fileInput = document.getElementById("pdfFile");
   if (!fileInput.files.length) {
@@ -25,22 +25,22 @@ async function uploadFile() {
   addMessage("✅ " + data.message, "bot");
 }
 
-// Simplify
+
 async function simplifyDoc() {
   await handleFileAction("/simplify", "✨ Simplifying document...", "Simplified Document:");
 }
 
-// Risk
+
 async function analyzeRisk() {
   await handleFileAction("/risk", "⚖️ Analyzing risks...", "Risk Analysis:");
 }
 
-// Compliance
+
 async function complianceCheck() {
   await handleFileAction("/compliance", "📑 Checking compliance...", "Compliance Check:");
 }
 
-// Common handler
+
 async function handleFileAction(endpoint, actionMsg, resultTitle) {
   const fileInput = document.getElementById("pdfFile");
   if (!fileInput.files.length) {
@@ -89,8 +89,9 @@ async function askQuestion() {
   questionInput.value = "";
 }
 
-// Clear
+
 function clearChat() {
   chatBox.innerHTML = "";
   addMessage("🧹 Chat cleared.", "bot");
 }
+
