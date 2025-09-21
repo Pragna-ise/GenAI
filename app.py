@@ -2,23 +2,23 @@ from fastapi import FastAPI, File, UploadFile, Form, Request
 from fastapi.responses import JSONResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-import fitz  # PyMuPDF
+import fitz  
 import vertexai
 from vertexai.generative_models import GenerativeModel
 import os, tempfile, traceback
 
-# Init app
+
 app = FastAPI(title="DocuGuard AI")
 
-# Mount static and templates
+
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
-# Gemini setup
+
 vertexai.init(project="legall-472707", location="us-central1")
 model = GenerativeModel("gemini-2.5-pro")
 
-# Extract text
+
 def extract_text_from_pdf(pdf_path):
     doc = fitz.open(pdf_path)
     text = ""
@@ -26,17 +26,17 @@ def extract_text_from_pdf(pdf_path):
         text += page.get_text("text") + "\n"
     return text.strip()
 
-# Home
+
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
-# Upload test route (optional)
+
 @app.post("/upload")
 async def upload_file(file: UploadFile = File(...)):
     return JSONResponse({"message": f"Uploaded {file.filename}"})
 
-# Simplify
+
 @app.post("/simplify")
 async def simplify_doc(file: UploadFile = File(...)):
     try:
@@ -61,7 +61,7 @@ async def simplify_doc(file: UploadFile = File(...)):
         traceback.print_exc()
         return JSONResponse({"error": str(e)}, status_code=500)
 
-# Risk Analyzer
+
 @app.post("/risk")
 async def analyze_risk(file: UploadFile = File(...)):
     try:
@@ -87,7 +87,7 @@ async def analyze_risk(file: UploadFile = File(...)):
         traceback.print_exc()
         return JSONResponse({"error": str(e)}, status_code=500)
 
-# Compliance Checker
+
 @app.post("/compliance")
 async def compliance_check(file: UploadFile = File(...)):
     try:
@@ -113,7 +113,7 @@ async def compliance_check(file: UploadFile = File(...)):
         traceback.print_exc()
         return JSONResponse({"error": str(e)}, status_code=500)
 
-# Ask Question
+
 @app.post("/ask")
 async def ask_question(question: str = Form(...)):
     try:
@@ -128,4 +128,5 @@ async def ask_question(question: str = Form(...)):
     except Exception as e:
         traceback.print_exc()
         return JSONResponse({"error": str(e)}, status_code=500)
+
 
