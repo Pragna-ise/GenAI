@@ -1,4 +1,4 @@
-/* General Page Styling */
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #f3f2ee, #e9e4d8);
@@ -8,7 +8,7 @@ body {
   margin: 0;
 }
 
-/* Main Container */
+
 .container {
   width: 750px;
   background: #ffffff;
@@ -27,7 +27,7 @@ h1 {
   color: #333;
 }
 
-/* Buttons & Inputs */
+
 input[type="file"], input[type="text"], button {
   border-radius: 8px;
   border: 1px solid #ddd;
@@ -43,7 +43,7 @@ input[type="file"], input[type="text"], button {
   margin: 15px 0;
 }
 
-/* Buttons */
+
 button {
   background: #0077b6;
   color: #fff;
@@ -64,7 +64,7 @@ button:active {
   transform: scale(0.98);
 }
 
-/* Chat Box */
+
 .chat-box {
   border: 1px solid #ddd;
   height: 450px;
@@ -76,7 +76,7 @@ button:active {
   font-size: 15px;
 }
 
-/* Messages */
+
 .message {
   margin: 10px 0;
   padding: 12px 14px;
@@ -86,7 +86,7 @@ button:active {
   word-wrap: break-word;
 }
 
-/* User Message */
+/
 .message.user {
   background: #d4ebf2;
   text-align: right;
@@ -95,7 +95,7 @@ button:active {
   font-weight: 500;
 }
 
-/* Bot Message */
+
 .message.bot {
   background: #f1f1f1;
   text-align: left;
@@ -103,7 +103,7 @@ button:active {
   color: #333;
 }
 
-/* Scrollbar */
+
 .chat-box::-webkit-scrollbar {
   width: 8px;
 }
@@ -117,3 +117,4 @@ button:active {
 .chat-box::-webkit-scrollbar-thumb:hover {
   background: #999;
 }
+
