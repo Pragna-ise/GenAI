@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DocuGuard AI</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>📘 DocuGuard AI</h1>
+    <input type="file" id="pdfFile" accept="application/pdf">
+
+    <div class="buttons">
+      <button onclick="uploadFile()">Upload</button>
+      <button onclick="simplifyDoc()">Simplify</button>
+      <button onclick="analyzeRisk()">Risk Analyzer</button>
+      <button onclick="complianceCheck()">Compliance Checker</button>
+    </div>
+
+    <div class="ask">
+      <input type="text" id="question" placeholder="Ask a question...">
+      <button onclick="askQuestion()">Send</button>
+      <button onclick="clearChat()">Clear Chat</button>
+    </div>
+
+    <div id="chat-box" class="chat-box"></div>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
+
